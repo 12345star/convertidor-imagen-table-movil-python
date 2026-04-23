@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Imágenes para Móvil y Tablet</title>
+    <meta name="description" content="Script Python que convierte imágenes a formato WebP optimizado para dispositivos móviles y tablets usando la librería Pillow. Incluye instalación, uso y mejores prácticas.">
+    <meta name="keywords" content="convertidor imágenes, WebP, móvil, tablet, Python, Pillow, entorno virtual, instalación">
+    <meta name="author" content="David Salas lorente">
+    <meta name="robots" content="index, follow">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2, h3 {
+            color: #007bff;
+        }
+        h1{
+            background-color: #007bff;
+            color: white;
+
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .enlace {
+          text-decoration: none;   /* elimina el subrayado */
+          color: solid #007bff;          /* opcional: define el color del texto */
+        }
+       .enlace:hover {
+           text-decoration: underline; /* opcional: vuelve a mostrar subrayado al pasar el mouse */
+        }
+        .highlight {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            margin: 20px 0;
+        }
+        .paso {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #28a745;
+        }
+        .paso h3 {
+            color: #28a745;
+            margin-top: 0;
+        }
+        .paso img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 15px 0;
+            display: block;
+        }
+        .paso-numero {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .arbol {
+            position: relative;
+        }
+        .arbol::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #dee2e6;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Convertidor de Imágenes para Móvil y Tablet</h1>
+        <p>Optimiza tus imágenes para la web con este script Python simple y eficiente.</p>
+    </header>
+
+    <div class="container">
+        <section id="descripcion">
+            <h2>Descripción</h2>
+            <p>Este proyecto es un script en Python que permite convertir imágenes a formato WebP optimizado para dispositivos móviles y tablets. Utiliza la librería Pillow para manipular las imágenes y genera versiones redimensionadas para móvil (400x400 píxeles) y tablet (800x800 píxeles). Ideal para desarrolladores web que buscan mejorar el rendimiento de sus sitios al reducir el tamaño de las imágenes sin perder calidad.</p>
+            <div class="highlight">
+                <strong>Nota:</strong> <br/>
+                Esta es una aplicación de línea de comandos (terminal) que se ejecuta desde la consola de comandos. 
+                No tiene una interfaz gráfica de usuario (GUI) y no se ejecuta en un navegador web. 
+                Es una herramienta para desarrolladores que prefieren trabajar con scripts y terminales para tareas de optimización de imágenes.
+            </div>
+            <div class="highlight">
+                <strong>¿Qué esperar de esta app?</strong> <br/>
+                Una herramienta rápida y fácil de usar para convertir imágenes en masa, ahorrando tiempo y ancho de banda. Perfecta para proyectos web, aplicaciones móviles y optimización de medios digitales.
+            </div>
+        </section>
+
+        <section id="requisitos">
+            <h2>Requisitos</h2>
+            <ul>
+                <li>Python 3.x instalado en tu sistema.</li>
+                <li>Librería Pillow (instalada automáticamente vía requirements.txt).</li>
+            </ul>
+        </section>
+
+        <section id="instalacion">
+            <h2>Instalación</h2>
+            <h3>1. Crear un Entorno Virtual</h3>
+            <p>Es recomendable usar un entorno virtual para aislar las dependencias del proyecto.</p>
+            <p>En la terminal, navega al directorio del proyecto:</p>
+            <pre><code>cd converidorIMGFormatoTableMovil</code></pre>
+            <p>Crea un entorno virtual:</p>
+            <pre><code>python3 -m venv venv</code></pre>
+
+            <h3>2. Activar el Entorno Virtual</h3>
+            <p>Activa el entorno virtual:</p>
+            <ul>
+                <li>En macOS/Linux: <code>source venv/bin/activate</code></li>
+                <li>En Windows: <code>venv\Scripts\activate</code></li>
+            </ul>
+
+            <h3>3. Instalar Dependencias</h3>
+            <p>Instala las dependencias desde el archivo requirements.txt:</p>
+            <pre><code>pip install -r requirements.txt</code></pre>
+            <p>Esto instalará Pillow y cualquier otra dependencia necesaria.</p>
+        </section>
+
+        <section id="uso">
+            <h2>Uso</h2>
+            <ol>
+                <li>Ejecuta el script: <code>python convertidor.py</code></li>
+                <li>Selecciona la opción 1 en el menú para convertir una imagen.</li>
+                <li>Ingresa la ruta completa o relativa de la imagen de entrada (por ejemplo: <code>imagen.jpg</code> o <code>/ruta/a/imagen.png</code>).</li>
+                <li>El script generará dos versiones:
+                    <ul>
+                        <li><code>imagen-mobile.webp</code> (400x400 píxeles)</li>
+                        <li><code>imagen-tablet.webp</code> (800x800 píxeles)</li>
+                    </ul>
+                    Las imágenes se guardarán en el mismo directorio que la imagen original.
+                </li>
+                <li>Para salir, selecciona la opción 2.</li>
+            </ol>
+        </section>
+
+        <section id="ejecucion">
+            <h2>Guía Visual de Ejecución</h2>
+            <p>A continuación se muestra el flujo de ejecución de la aplicación con capturas de pantalla:</p>
+            
+            <div class="arbol">
+                <div class="paso">
+                    <div>
+                        <span class="paso-numero">1</span>
+                        <h3>Estructura del Proyecto</h3>
+                    </div>
+                    <p>Antes de ejecutar la aplicación, asegúrate de tener la estructura correcta del proyecto:</p>
+                    <img src="./img/estructuraproyectoapp.png" alt="Estructura del proyecto del convertidor">
+                </div>
+
+                <div class="paso">
+                    <div>
+                        <span class="paso-numero">2</span>
+                        <h3>Menú Principal</h3>
+                    </div>
+                    <p>Cuando ejecutas el script con <code>python convertidor.py</code>, se mostrará el menú principal con las opciones disponibles:</p>
+                    <img src="./img/menuprincipalapp.png" alt="Menú principal de la aplicación">
+                </div>
+
+                <div class="paso">
+                    <div>
+                        <span class="paso-numero">3</span>
+                        <h3>Convertir Imagen</h3>
+                    </div>
+                    <p>Selecciona la opción 1 para convertir una imagen. Ingresa la ruta de la imagen y el script procesará la conversión:</p>
+                    <img src="./img/convertirimgapp.png" alt="Proceso de conversión de imagen">
+                </div>
+
+                <div class="paso">
+                    <div>
+                        <span class="paso-numero">4</span>
+                        <h3>Salir de la Aplicación</h3>
+                    </div>
+                    <p>Cuando termines de convertir imágenes, selecciona la opción 2 para salir:</p>
+                    <img src="./img/salirapp.png" alt="Opción de salida de la aplicación">
+                </div>
+            </div>
+        </section>
+
+        <section id="notas">
+            <h2>Notas</h2>
+            <ul>
+                <li>Asegúrate de que la imagen de entrada sea un formato compatible con Pillow (JPEG, PNG, etc.).</li>
+                <li>Las imágenes de salida están en formato WebP con calidad 85% para optimización.</li>
+                <li>Si encuentras errores, verifica que Pillow esté instalado correctamente y que la ruta de la imagen sea válida.</li>
+            </ul>
+        </section>
+
+        <section id="licencia">
+            <h2>Licencia</h2>
+            <p>Este proyecto es de uso libre. Modifícalo según tus necesidades.</p>
+        </section>
+
+        <section id="enlaces">
+            <h2>Enlaces</h2>
+            <ul>
+                <li><a href="https://github.com/12345star/convertidor-imagen-table-movil-python" target="_blank" class="enlace" rel="noopener noreferrer" >Repositorio en GitHub</a></li>
+                <li><a href="https://github.com/123star" target="_blank" class="enlace" rel="noopener noreferrer" >Creador del proyecto</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>  &copy; David Salas  - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
