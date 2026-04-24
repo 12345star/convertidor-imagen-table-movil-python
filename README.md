@@ -1,6 +1,6 @@
-# Convertidor de Imágenes para Móvil y Tablet
+# Convertidor de imágenes para móvil y tablet
 
-Este proyecto es un script en Python que permite convertir imágenes a formato WebP optimizado para dispositivos móviles y tablets. Utiliza la librería Pillow para manipular las imágenes y genera versiones redimensionadas para móvil (400x400) y tablet (800x800).
+Este proyecto es un script en Python que permite convertir imágenes a formato WebP optimizado para dispositivos móviles y tabletas. Utiliza la librería Pillow para manipular las imágenes y genera versiones redimensionadas para móvil (400x400) y tablet (800x800).
 
 ## Requisitos
 
@@ -9,14 +9,14 @@ Este proyecto es un script en Python que permite convertir imágenes a formato W
 
 ## Instalación
 
-### 1. Crear un Entorno Virtual
+### 1. Crear un entorno virtual
 
 Es recomendable usar un entorno virtual para aislar las dependencias del proyecto.
 
 En la terminal, navega al directorio del proyecto:
 
 ```bash
-cd converidorIMGFormatoTableMovil
+cd convertidorIMGFormatoTableMovil
 ```
 
 Crea un entorno virtual:
@@ -25,7 +25,7 @@ Crea un entorno virtual:
 python3 -m venv venv
 ```
 
-### 2. Activar el Entorno Virtual
+### 2. Activar el entorno virtual
 
 Activa el entorno virtual:
 
@@ -39,7 +39,7 @@ Activa el entorno virtual:
   venv\Scripts\activate
   ```
 
-### 3. Instalar Dependencias
+### 3. Instalar dependencias
 
 Instala las dependencias desde el archivo requirements.txt:
 
@@ -68,10 +68,15 @@ Esto instalará Pillow y cualquier otra dependencia necesaria.
 
 5. Para salir, selecciona la opción 2.
 
+## Sitio web
+
+Enlace al sitio web:
+> [Página](https://12345star.github.io/convertidor-imagen-table-movil-python/)
+
 ## Notas
 
-- Asegúrate de que la imagen de entrada sea un formato compatible con Pillow (JPEG, PNG, etc.).
-- Las imágenes de salida están en formato WebP con calidad 85% para optimización.
+- Asegúrate de que la imagen de entrada sea de un formato compatible con Pillow (JPEG, PNG, etc.).
+- Las imágenes de salida están en formato WebP con calidad del 85 % para optimización.
 - Si encuentras errores, verifica que Pillow esté instalado correctamente y que la ruta de la imagen sea válida.
 
 ## Licencia
